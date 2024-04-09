@@ -1,0 +1,167 @@
+.tagPlace {
+  background-color: #f3f3f3;
+  padding: 10px;
+}
+
+
+.tagfix {
+  background-color:
+    #919ca5;
+  border-radius: 160px;
+  color: #ffffff;
+  display: inline-block;
+  font-family: source sans pro;
+  font-size: 12.8px;
+  grid-area: auto;
+  line-height: 19.2px;
+  margin: 0px 3px 3.2px 0px;
+  padding: 1.6px 7.68px;
+  border: none
+}
+
+.tagfix:hover {
+  background-color: #687077;
+}
+
+.preview-link {
+  color: inherit;
+}
+
+.article-meta {
+  display: block;
+  position: relative;
+  font-weight: 300;
+  padding-bottom: 20px;
+}
+
+.author {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.date {
+  color: #bbb;
+  font-size: .8rem;
+  display: block;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 3px;
+}
+
+li {
+  font-weight: 300;
+  font-size: .8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  unicode-bidi: isolate;
+  display: list-item;
+
+}
+
+.tag-default.tag-outline {
+  border: 1px solid #ddd;
+  color: #aaa;
+  background: 0 0;
+}
+
+ul.tag-list li {
+  display: inline-block;
+}
+
+.tag-default {
+  color: #fff;
+  font-size: .8rem;
+  padding-top: .1rem;
+  padding-bottom: .1rem;
+  white-space: nowrap;
+  margin-right: 3px;
+  margin-bottom: .2rem;
+  display: inline-block;
+}
+
+ul.tag-list {
+  padding-left: 0;
+  display: inline-block;
+  list-style: none;
+}
+
+.tag-pill {
+  padding-right: .6em;
+  padding-left: .6em;
+  border-radius: 10rem;
+}
+
+.article-preview {
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  padding: 1.5rem 0;
+}
+
+.info {
+  margin: 0 1.5rem 0 .3rem;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1rem;
+}
+
+.flex {
+  margin: 0;
+  margin-left: 0;
+  padding-left: 0%;
+  text-decoration: none
+}
+
+.pagefix {
+  margin-top: 40px;
+  margin-left: auto;
+}
+
+.floatr {
+  float: right;
+}
+
+.nav-pills.outline-active .nav-link {
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: 0 0;
+  color: #aaa;
+  display: block;
+  padding: .5em 1em;
+}
+
+.links {
+  background: #fff !important;
+  border-bottom: 2px solid #5cb85c !important;
+  color: #5cb85c !important;
+  border-radius: 0;
+  border: none;
+  cursor: default;
+  display: block;
+  padding: .5em 1em;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  text-align: center;
+  align-items: center;
+}
+
+.active {
+  color: #5cb85c;
+}
+
+.imgIcon {
+  width: 32px;
+}
+
+.favorited {
+  background-color: #198754;
+  color: white;
+}
