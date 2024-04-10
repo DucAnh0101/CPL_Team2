@@ -127,6 +127,10 @@ ul.tag-list {
   float: right;
 }
 
+.floatl {
+  float: left;
+}
+
 .nav-pills.outline-active .nav-link {
   border-radius: 0;
   border: none;
@@ -159,9 +163,86 @@ ul.tag-list {
 
 .imgIcon {
   width: 32px;
+  height: 32px;
 }
 
 .favorited {
   background-color: #198754;
   color: white;
+  border: #198754 1px solid;
+
+}
+
+.unfavorite {
+  background-color: inherit;
+  color: #198754;
+  border: #198754 1px solid;
+}
+
+.article-page {
+  background-color: black;
+}
+
+.center {
+  text-align: center;
+  font-size: 100px;
+}
+
+.title {
+  padding-top: 60px;
+  padding-bottom: 30px;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  font-size: 30px;
+  ;
+}
+
+.head {
+  width: 1150px;
+  margin: auto;
+}
+
+.name {
+  padding-bottom: 40px;
+}
+
+.articleContent {
+  margin-top: 50px;
+  width: 1150px;
+
+}
+
+.cardfix {
+  width: 100%;
+  height: 100px;
+}
+
+.cardf {
+  background-color: #919ca5;
+  height: 40px;
+  border-radius: 3px;
+}
+
+.show-comment {
+  width: 100%;
+
+}
+
+.trash {
+  float: right;
+}
+
+.centerr {
+  padding-top: 4px;
+}
+
+.comment {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 10px;
 }

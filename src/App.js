@@ -5,8 +5,8 @@ import NewArticle from './components/page/newArticle';
 import EditProfile from './components/page/editProfile';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from './components/Header & footer/Footer';
-
-function App() {
+import DetailArticle from './components/page/detailArticle'
+function App () {
   return (
     <BrowserRouter>
       <div className='app'>
@@ -16,6 +16,8 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/newArticle' element={<NewArticle />} />
           <Route path='/editProfile' element={<EditProfile />} />
+          <Route path='/article/:slug' element={<DetailArticle />} />
+
         </Routes>
         <Footer />
       </div>
@@ -24,4 +26,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
