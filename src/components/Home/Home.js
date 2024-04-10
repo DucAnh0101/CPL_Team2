@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../Header/Header'
+import Header from '../Header & footer/Header'
 import './Home.css'
 import { useNavigate } from 'react-router-dom'
 
@@ -95,8 +95,6 @@ export default function Home () {
     if (isLogin) {
       const apiUrl = `https://api.realworld.io/api/articles/${articleSlug}/favorite`
       const method = favorited ? 'DELETE' : 'POST'
-      console.log(favorited)
-
       try {
         const response = await fetch(apiUrl, {
           method,
