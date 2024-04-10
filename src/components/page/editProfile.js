@@ -28,6 +28,8 @@ export default function EditProfile() {
         })
             .then((res) => {
                 console.log(res.data.user);
+                localStorage.removeItem('token');
+                localStorage.setItem('token', `${res.data.user.token}`);
             })
             .catch((err) => {
                 console.log(err);
