@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import Header from '../Header/Header'
+import Header from '../Header & footer/Header'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -32,19 +32,19 @@ const DetailArticle = () => {
     if (token) {
       getUser()
       setIsLogin(true)
+      fetchComments()
     }
-    fetchComments()
     fetchArticleDetails()
   }, [slug, isLogin])
   const fetchArticleDetails = async () => {
     try {
       let apiUrl = `https://api.realworld.io/api/articles/${slug}`
-      const headers = isLogin ? { Authorization: `Bearer ${token}` } : {}
+      const headers = token ? { Authorization: `Bearer ${token}` } : {}
       const response = await fetch(apiUrl, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
+          headers
         }
       })
       if (response.ok) {
