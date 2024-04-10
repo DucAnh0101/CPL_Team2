@@ -1,7 +1,10 @@
-import Home from './components/Home';
-import Login from './components/Login';
-import Register from './components/Register';
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import Home from './components/Home/Home';
+import Login from './components/page/Login';
+import NewArticle from './components/page/newArticle';
+import Register from './components/page/Register';
+import UserProfile from './components/page/userProfile';
+import EditProfile from './components/page/editProfile';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 function App() {
   return (
@@ -10,8 +13,9 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/login' element={<Login/>}/>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/' element={<Home/>}/>
+          <Route path='/newArticle' element={<NewArticle/>}/>
+          <Route path='/userProfile' element={<UserProfile/>}/>
+          <Route path='/editProfile' element={<EditProfile/>}/>
         </Routes>
     </BrowserRouter>
   );

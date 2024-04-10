@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Header from './Header'
+import Header from '../Header/Header'
 import './Home.css'
 import { useNavigate } from 'react-router-dom'
 
@@ -15,6 +15,7 @@ export default function Home () {
   const [totalPages, setTotalPages] = useState(0)
   const [firstLogin, setFirstLogin] = useState(false)
   const token = localStorage.getItem('token')
+
   useEffect(() => {
     fetchTags()
     if (token) {
@@ -110,7 +111,7 @@ export default function Home () {
             fetchArticles(activeItem === 'log', offset)
           } else if (activeItem === selectedTag) {
             fetchArticles(selectedTag, offset)
-          }else{
+          } else {
             fetchArticles('', offset)
           }
         } else {
