@@ -95,7 +95,6 @@ export default function Home () {
     if (isLogin) {
       const apiUrl = `https://api.realworld.io/api/articles/${articleSlug}/favorite`
       const method = favorited ? 'DELETE' : 'POST'
-      console.log(favorited)
 
       try {
         const response = await fetch(apiUrl, {
@@ -108,7 +107,8 @@ export default function Home () {
 
         if (response.ok) {
           if (activeItem === 'log') {
-            fetchArticles(activeItem === 'log', offset)
+            console.log(activeItem)
+            fetchArticles('log', offset)
           } else if (activeItem === selectedTag) {
             fetchArticles(selectedTag, offset)
           } else {
@@ -228,7 +228,10 @@ export default function Home () {
                         {article.favoritesCount}
                       </button>{' '}
                     </div>
-                    <a className='preview-link' href='#'>
+                    <a
+                      className='preview-link'
+                      href={'/article/' + article.slug}
+                    >
                       <h1>{article.title}</h1>
                       <p className='text-secondary'>{article.description}</p>
                       <span className='text-secondary'>Read more...</span>
