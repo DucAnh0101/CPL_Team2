@@ -106,11 +106,13 @@ export default function Home () {
         })
 
         if (response.ok) {
-
-          fetchArticles(
-            activeItem === 'log' ? 'log' : selectedTag || '',
-            offset
-          )
+          if (activeItem === 'log') {
+            fetchArticles(activeItem === 'log', offset)
+          } else if (activeItem === selectedTag) {
+            fetchArticles(selectedTag, offset)
+          }else{
+            fetchArticles('', offset)
+          }
         } else {
           console.error('Error handling favorite:', response.statusText)
         }
