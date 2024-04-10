@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import Header from './Header'
+import React, { useEffect, useState} from 'react'
+import Header from '../Header/Header'
 import './Home.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
 
 export default function Home () {
-  const navigate = useNavigate()
-  const [articles, setArticles] = useState([])
-  const [tags, setTags] = useState([])
-  const [selectedTag, setSelectedTag] = useState(null) // State to store the selected tag
-  const [activeItem, setActiveItem] = useState('Global Feed')
-  const [offset, setOffset] = useState(0) // Thêm state offset
-  const [isLogin, setIsLogin] = useState(false) // State to store the selected tag
-  const limit = 10
-  const [totalPages, setTotalPages] = useState(0)
-  const [firstLogin, setFirstLogin] = useState(false)
-  const token = localStorage.getItem('token')
+  const navigate = useNavigate();
+  const [articles, setArticles] = useState([]);
+  const [tags, setTags] = useState([]);
+  const [selectedTag, setSelectedTag] = useState(null); // State to store the selected tag
+  const [activeItem, setActiveItem] = useState('Global Feed');
+  const [offset, setOffset] = useState(0); // Thêm state offset
+  const [isLogin, setIsLogin] = useState(false); // State to store the selected tag
+  const limit = 10;
+  const [totalPages, setTotalPages] = useState(0);
+  const [firstLogin, setFirstLogin] = useState(false);
+  const token = localStorage.getItem('token');
+
   useEffect(() => {
     fetchTags()
     if (token) {
@@ -134,7 +135,7 @@ export default function Home () {
   }
   return (
     <>
-      <Header />
+    <Header/>
       <div className='container-fluid bg-success text-center text-white'>
         <div className='py-4'>
           <h1 className='mb-3'>CONDUIT</h1>
