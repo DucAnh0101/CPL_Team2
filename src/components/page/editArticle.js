@@ -53,7 +53,6 @@ const EditArticle = () => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`
       }
-      console.log(headers);
       const response = await fetch(apiUrl, {
         method: 'PUT',
         headers: headers,
