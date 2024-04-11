@@ -40,13 +40,6 @@ export default function Register() {
             })
     }
 
-    // document.addEventListener("keydown", function (event) {
-    //     if (event.keyCode === 13) {
-    //         handelSignUp();
-    //     }
-    //     return;
-    // });
-
     return (
         <>
             <Header />

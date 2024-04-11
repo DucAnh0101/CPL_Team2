@@ -5,12 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function EditProfile() {
     const token = localStorage.getItem("token");
-    const [user, setUser] = useState([]);
-    const [image, setImage] = useState('');
-    const [userName, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [bio, setBio] = useState('');
-    const [password, setPassword] = useState('');
+    const [image, setImage] = useState();
+    const [userName, setName] = useState();
+    const [email, setEmail] = useState();
+    const [bio, setBio] = useState();
+    const [password, setPassword] = useState();
     const navigate = useNavigate();
 
     const updateUser = () => {
@@ -49,7 +48,10 @@ export default function EditProfile() {
                 },
             })
             .then((res) => {
-                setUser(res.data.user);
+                setImage(res.data.user.image);
+                setName(res.data.user.username);
+                setBio(res.data.user.bio);
+                setEmail(res.data.user.email);
             })
             .catch((err) => {
                 console.log(err);
@@ -63,23 +65,25 @@ export default function EditProfile() {
                 <h1 className="display-5 fw-normal">Your Setting</h1>
                     <input
                         className="form-control form-control-sm border my-3"
-                        value={user.image}
+                        value={image}
                         onChange={(e) => setImage(e.target.value)}
                     ></input>
                     <input
                         className="form-control border"
-                        value={user.username}
+                        value={userName}
                         onChange={(e) => setName(e.target.value)}
                     ></input>
                     <textarea
                         className="form-control form-control-sm border my-3"
                         placeholder="Short bio about you"
+                        value={bio}
                         onChange={(e) => setBio(e.target.value)}
                         style={{height: '200px'}}
                     />
                     <input
                         className="form-control border"
                         placeholder="Email"
+                        value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                     <input

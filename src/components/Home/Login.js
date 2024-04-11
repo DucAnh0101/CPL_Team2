@@ -21,13 +21,10 @@ export default function Login() {
                 localStorage.setItem('token', res.data.user.token);
                 navigate('/');
             })
+            .catch(err =>{
+                console.log(err);
+            })
     }
-    
-    document.addEventListener("keydown", function (event) {
-        if (event.keyCode === 13) {
-            handelSignIn();
-        }
-      }); 
 
     return (
         <>
