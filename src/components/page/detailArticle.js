@@ -32,6 +32,7 @@ const DetailArticle = () => {
     if (token) {
       getUser()
       setIsLogin(true)
+
       fetchComments()
     }
     fetchArticleDetails()
@@ -44,9 +45,10 @@ const DetailArticle = () => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          headers
+          ...headers
         }
       })
+
       if (response.ok) {
         const data = await response.json()
         setArticle(data.article)
@@ -62,7 +64,6 @@ const DetailArticle = () => {
     if (isLogin) {
       const apiUrl = `https://api.realworld.io/api/articles/${articleSlug}/favorite`
       const method = favorited ? 'DELETE' : 'POST'
-
       try {
         const response = await fetch(apiUrl, {
           method,
@@ -158,6 +159,36 @@ const DetailArticle = () => {
       console.error('Error deleting comment:', error)
     }
   }
+  const handleDelete = async () => {
+    if (!window.confirm('Are you sure you want to delete this article?')) {
+      return
+    }
+
+    try {
+      const apiUrl = `https://api.realworld.io/api/articles/${article.slug}`
+      const response = await fetch(apiUrl, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      })
+
+      if (response.ok) {
+        // Article successfully deleted, perform any necessary cleanup
+        // For example, navigate to a different page
+        navigate('/') // Navigate to home page after deletion
+      } else {
+        console.error('Failed to delete article:', response.statusText)
+      }
+    } catch (error) {
+      console.error('Error deleting article:', error)
+    }
+  }
+
+  const handleEdit = slug => {
+    navigate('/newArticle/' + slug)
+  }
   return (
     <div>
       <Header />
@@ -193,20 +224,38 @@ const DetailArticle = () => {
                       </span>
                     </div>
                     &nbsp;
-                    <button
-                      className={`btn btn-sm btn-primary ${
-                        article.favorited ? 'favorited' : 'unfavorite'
-                      }`}
-                      onClick={() => {
-                        handleFavorite(article.slug, article.favorited)
-                      }}
-                    >
-                      <i className='fa-solid fa-heart'></i>{' '}
-                      {article.favorited ? 'Unfavorite' : 'Favorite'} Article{' '}
-                      <span className='counter'>
-                        ({article.favoritesCount})
-                      </span>
-                    </button>
+                    {isLogin && article.author.username === user.username ? (
+                      <>
+                        {/* Render delete and edit buttons */}
+                        <button
+                          className='btn btn-sm btn-danger'
+                          onClick={handleDelete}
+                        >
+                          Delete Article
+                        </button>
+                        <button
+                          className='btn btn-sm btn-secondary'
+                          onClick={() => handleEdit(article.slug)}
+                        >
+                          Edit Article
+                        </button>
+                      </>
+                    ) : (
+                      <button
+                        className={`btn btn-sm btn-primary ${
+                          article.favorited ? 'favorited' : 'unfavorite'
+                        }`}
+                        onClick={() => {
+                          handleFavorite(article.slug, article.favorited)
+                        }}
+                      >
+                        <i className='fa-solid fa-heart'></i>{' '}
+                        {article.favorited ? 'Unfavorite' : 'Favorite'} Article{' '}
+                        <span className='counter'>
+                          ({article.favoritesCount})
+                        </span>
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
