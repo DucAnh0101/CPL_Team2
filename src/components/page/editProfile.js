@@ -14,15 +14,16 @@ export default function EditProfile() {
 
     const updateUser = () => {
         axios.put('https://api.realworld.io/api/user', {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
             user: {
                 email: email,
                 password: password,
                 username: userName,
                 bio: bio,
                 image: image
+            },
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
             }
         })
             .then((res) => {
@@ -63,35 +64,35 @@ export default function EditProfile() {
             <Header />
             <div className="container text-center w-50 mt-5">
                 <h1 className="display-5 fw-normal">Your Setting</h1>
-                    <input
-                        className="form-control form-control-sm border my-3"
-                        value={image}
-                        onChange={(e) => setImage(e.target.value)}
-                    ></input>
-                    <input
-                        className="form-control border"
-                        value={userName}
-                        onChange={(e) => setName(e.target.value)}
-                    ></input>
-                    <textarea
-                        className="form-control form-control-sm border my-3"
-                        placeholder="Short bio about you"
-                        value={bio}
-                        onChange={(e) => setBio(e.target.value)}
-                        style={{height: '200px'}}
-                    />
-                    <input
-                        className="form-control border"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                        className="form-control border my-3"
-                        placeholder="Password"
-                        type="password"
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+                <input
+                    className="form-control form-control-sm border my-3"
+                    value={image}
+                    onChange={(e) => setImage(e.target.value)}
+                ></input>
+                <input
+                    className="form-control border"
+                    value={userName}
+                    onChange={(e) => setName(e.target.value)}
+                ></input>
+                <textarea
+                    className="form-control form-control-sm border my-3"
+                    placeholder="Short bio about you"
+                    value={bio}
+                    onChange={(e) => setBio(e.target.value)}
+                    style={{ height: '200px' }}
+                />
+                <input
+                    className="form-control border"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                    className="form-control border my-3"
+                    placeholder="Password"
+                    type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                />
                 <div className=" d-flex justify-content-end border-bottom pb-3">
                     <button className="btn btn-success py-3 px-4" onClick={updateUser}>
                         Update setting

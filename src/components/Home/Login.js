@@ -3,9 +3,10 @@ import { useState } from 'react'
 import axios from 'axios'
 import Header from '../Header & footer/Header'
 
-export default function Login () {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [err, setErr] = useState();
   const navigate = useNavigate()
 
   const handelSignIn = () => {
@@ -21,7 +22,13 @@ export default function Login () {
         navigate('/')
       })
       .catch(err => {
-        console.log(err)
+        if (!email || err.response.data.errors.email) {
+          setErr(`Email ${err.response.data.errors.email}`);
+        } else if (!password || err.response.data.errors.password) {
+          setErr(`Password ${err.response.data.errors.password}`);
+        } else { 
+          setErr(`Email or password ${err.response.data.errors['email or password']}`)
+        }
       })
   }
 
@@ -40,7 +47,9 @@ export default function Login () {
         <Link className='text-success' to='/register'>
           Need an account?
         </Link>
+        {err && <span className="text-danger">{err}</span>}
         <div className='container d-flex flex-column justify-content-center'>
+          {!err}
           <input
             type='text'
             placeholder='Email'

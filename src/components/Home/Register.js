@@ -8,7 +8,7 @@ export default function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userName, setUserName] = useState('');
-    const [error, setError] = useState('');
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
 
@@ -27,25 +27,23 @@ export default function Register() {
                 navigate('/');
             })
             .catch((err) => {
-                console.log(err.response.data.errors);
-                if (!email) {
+                console.log(err.response.data);
+                if (!email || err.response.data.errors.email) {
                     setError(`Email ${err.response.data.errors.email}`);
-                } else if (!userName) {
+                } else if (!userName || err.response.data.errors.username) {
                     setError(`Username ${err.response.data.errors.username}`);
                 } else if (!password) {
                     setError(`Password ${err.response.data.errors.password}`);
-                } else {
-                    setError('');
-                }
+                } 
             })
     }
     const handleKeyDown = event => {
         if (event.key === 'Enter') {
             handelSignUp()
         }
-      }
-    
-      document.addEventListener('keydown', handleKeyDown)
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
     return (
         <>
             <Header />
@@ -59,7 +57,7 @@ export default function Register() {
                     <input type="password" placeholder="Password" className="p-2 m-3 rounded border" onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div className="d-flex justify-content-end">
-                <button className="btn btn-success mx-4 px-5" onClick={handelSignUp}>Sign up</button>
+                    <button className="btn btn-success mx-4 px-5" onClick={handelSignUp}>Sign up</button>
                 </div>
             </div>
         </>

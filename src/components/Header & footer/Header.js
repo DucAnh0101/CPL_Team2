@@ -6,6 +6,10 @@ export default function Header() {
   const token = localStorage.getItem("token");
   const [user, setUser] = useState([]);
 
+  const handleLogOut = () => {
+    localStorage.removeItem('token');
+  }
+
   useEffect(() => {
     axios
       .get("https://api.realworld.io/api/user", {
@@ -71,8 +75,13 @@ export default function Header() {
                 <i className="fa-solid fa-gear"></i>Setting
               </Link>
               <Link
-                className="text-decoration-none mx-3 text-secondary"
-                to="/userProfile"
+                className="mx-3 text-secondary"
+                onClick={handleLogOut}
+                to='/'>
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>Log out
+              </Link>
+              <span
+                className="text-secondary"
               >
                 <img
                   className="user-avt"
@@ -84,7 +93,7 @@ export default function Header() {
                   }}
                 />{" "}
                 {user.username}
-              </Link>
+              </span>
             </div>
           </div>
         </div>
