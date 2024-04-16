@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom'
 import "./userProfile.css";
 const UserProfile = () => {
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
     const username = useParams().userName;
     const [bio, setBio] = useState();
     const [userImage, setUserImage] = useState();
@@ -71,7 +70,6 @@ const UserProfile = () => {
                 setTotalPages(Math.ceil(res.articlesCount / limit))
             })
             .catch(error => console.error('Error fetching articles:', error))
-        setLoading(false);
     }
 
     const handleActive = item => {

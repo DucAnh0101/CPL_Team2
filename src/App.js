@@ -3,15 +3,20 @@ import Login from './components/Home/Login';
 import Register from './components/Home/Register';
 import NewArticle from './components/page/newArticle';
 import EditProfile from './components/page/editProfile';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import Footer from './components/Header & footer/Footer';
 import DetailArticle from './components/page/detailArticle'
 import EditArticle from './components/page/editArticle';
 import UserProfile from './components/page/userProfile';
 import Profile from './components/page/profile';
+import axios from 'axios';
+import { useState } from 'react';
 
 function App() {
-  const isAuthenticated = true;
+  const token = localStorage.getItem('token');
+  let isAuthenticated = false;
+  token ? isAuthenticated = true : isAuthenticated = false;
+
   return (
     <BrowserRouter>
       <div className='app'>
@@ -24,7 +29,7 @@ function App() {
           <Route path='/article/:slug' element={<DetailArticle />} />
           <Route path='/newArticle/:slug' element={<EditArticle />} />
           <Route path='/profile/:userName' element={<UserProfile />} />
-          {isAuthenticated && <Route path='/user/:userName' element={<Profile />} />}
+          <Route path='/user/:userName' element={isAuthenticated?<Profile />: <Navigate to="/login"/>} />
         </Routes>
         <Footer />
       </div>
