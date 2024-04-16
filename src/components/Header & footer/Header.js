@@ -11,7 +11,8 @@ export default function Header() {
   }
 
   useEffect(() => {
-    axios
+    if(token){
+      axios
       .get("https://api.realworld.io/api/user", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -23,6 +24,7 @@ export default function Header() {
       .catch((err) => {
         console.log(err);
       });
+    }
   }, []);
 
   return (
@@ -78,7 +80,7 @@ export default function Header() {
                 className="mx-3 text-secondary"
                 onClick={handleLogOut}
                 to='/'>
-                <i class="fa-solid fa-arrow-right-from-bracket"></i>Log out
+                <i className="fa-solid fa-arrow-right-from-bracket"></i>Log out
               </Link>
               <Link to={`/user/${user.username}`} className="text-secondary">
                 <img

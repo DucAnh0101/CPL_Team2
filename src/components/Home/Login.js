@@ -18,28 +18,32 @@ export default function Login() {
         }
       })
       .then(res => {
+        console.log("có chạy vào đây nhé 1!");
         localStorage.setItem('token', res.data.user.token);
         setErr('');
         navigate('/');
+        return;
       })
       .catch(err => {
+        console.log("có chạy vào đây nhé 2!");
         if (err.response.data.errors.email) {
           setErr(`Email ${err.response.data.errors.email}`);
-        } else if (err.response.data.errors.password) {
+        } if (err.response.data.errors.password) {
           setErr(`Password ${err.response.data.errors.password}`);
-        } else { 
+        } if(err.response.data.errors['email or password']) { 
           setErr(`Email or password ${err.response.data.errors['email or password']}`)
         }
+        return;
       })
   }
 
-  const handleKeyDown = event => {
-    if (event.key === 'Enter') {
-      handelSignIn();
-    }
-  }
+  // const handleKeyDown = event => {
+  //   if (event.key === 'Enter') {
+  //     handelSignIn();
+  //   }
+  // }
 
-  document.addEventListener('keydown', handleKeyDown);
+  // document.addEventListener('keydown', handleKeyDown);
   return (
     <>
       <Header />

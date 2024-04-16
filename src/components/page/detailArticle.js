@@ -172,11 +172,7 @@ const DetailArticle = () => {
       })
 
       if (response.ok) {
-<<<<<<< HEAD
-        navigate('/');
-=======
         navigate('/')
->>>>>>> 4c0d8776d9f47cec91ecedbf0b26add6fdfb116a
       } else {
         console.error('Failed to delete article:', response.statusText)
       }

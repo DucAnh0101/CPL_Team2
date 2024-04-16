@@ -13,23 +13,11 @@ import axios from 'axios';
 import { useState } from 'react';
 
 function App() {
-  const token = localStorage.getItem('token');
-  let isAuthenticated = false;
-  token ? isAuthenticated = true : isAuthenticated = false;
 
   return (
     <BrowserRouter>
       <div className='app'>
         <Routes>
-<<<<<<< HEAD
-          <Route path='/' element={<Home/>}/>
-          <Route path='/register' element={<Register />}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/newArticle' element={<NewArticle/>}/>
-          <Route path='/editProfile' element={<EditProfile/>}/>
-          <Route path='/article/:slug' element={<DetailArticle/>}/>
-          <Route path='/newArticle/:slug' element={<EditArticle/>}/>
-=======
           <Route path='/' element={<Home />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
@@ -38,8 +26,7 @@ function App() {
           <Route path='/article/:slug' element={<DetailArticle />} />
           <Route path='/newArticle/:slug' element={<EditArticle />} />
           <Route path='/profile/:userName' element={<UserProfile />} />
-          <Route path='/user/:userName' element={isAuthenticated?<Profile />: <Navigate to="/login"/>} />
->>>>>>> 4c0d8776d9f47cec91ecedbf0b26add6fdfb116a
+          <Route path='/user/:userName' element={<Profile />} />
         </Routes>
         <Footer/>
       </div>

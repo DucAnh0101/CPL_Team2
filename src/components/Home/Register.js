@@ -38,13 +38,13 @@ export default function Register() {
                 }
             })
     }
-    const handleKeyDown = event => {
-        if (event.key === 'Enter') {
-            handelSignUp()
-        }
-    }
+    // const handleKeyDown = event => {
+    //     if (event.key === 'Enter') {
+    //         handelSignUp()
+    //     }
+    // }
 
-    document.addEventListener('keydown', handleKeyDown)
+    // document.addEventListener('keydown', handleKeyDown)
     return (
         <>
             <Header />
