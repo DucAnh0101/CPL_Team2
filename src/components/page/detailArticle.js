@@ -175,9 +175,7 @@ const DetailArticle = () => {
       })
 
       if (response.ok) {
-        // Article successfully deleted, perform any necessary cleanup
-        // For example, navigate to a different page
-        navigate('/') // Navigate to home page after deletion
+        navigate('/');
       } else {
         console.error('Failed to delete article:', response.statusText)
       }
@@ -192,10 +190,9 @@ const DetailArticle = () => {
   return (
     <div>
       <Header />
-
       {article && (
         <div>
-          <div className='article-page'>
+          <div className='article-page bg-dark'>
             <div className='banner'>
               <div className='container text-white '>
                 <div className='head'>
@@ -226,25 +223,23 @@ const DetailArticle = () => {
                     &nbsp;
                     {isLogin && article.author.username === user.username ? (
                       <>
-                        {/* Render delete and edit buttons */}
                         <button
-                          className='btn btn-sm btn-danger'
-                          onClick={handleDelete}
-                        >
-                          Delete Article
-                        </button>
-                        <button
-                          className='btn btn-sm btn-secondary'
+                          className='btn btn-sm btn-outline-secondary me-2 rounded'
                           onClick={() => handleEdit(article.slug)}
                         >
-                          Edit Article
+                        <i class="fa-solid fa-pen"></i> Edit Article
+                        </button>
+                        <button
+                          className='btn btn-sm btn-outline-danger rounded'
+                          onClick={handleDelete}
+                        >
+                        <i class="fa-solid fa-trash"></i> Delete Article
                         </button>
                       </>
                     ) : (
                       <button
-                        className={`btn btn-sm btn-primary ${
-                          article.favorited ? 'favorited' : 'unfavorite'
-                        }`}
+                        className={`btn btn-sm btn-primary ${article.favorited ? 'favorited' : 'unfavorite'
+                          }`}
                         onClick={() => {
                           handleFavorite(article.slug, article.favorited)
                         }}

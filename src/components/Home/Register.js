@@ -22,8 +22,8 @@ export default function Register() {
             }
         })
             .then((res) => {
-                console.log(res.data.user);
                 localStorage.setItem('token', res.data.user.token);
+                setError('');
                 navigate('/');
             })
             .catch((err) => {

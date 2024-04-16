@@ -18,8 +18,9 @@ export default function Login() {
         }
       })
       .then(res => {
-        localStorage.setItem('token', res.data.user.token)
-        navigate('/')
+        localStorage.setItem('token', res.data.user.token);
+        setErr('');
+        navigate('/');
       })
       .catch(err => {
         if (!email || err.response.data.errors.email) {
@@ -34,11 +35,11 @@ export default function Login() {
 
   const handleKeyDown = event => {
     if (event.key === 'Enter') {
-      handelSignIn()
+      handelSignIn();
     }
   }
 
-  document.addEventListener('keydown', handleKeyDown)
+  document.addEventListener('keydown', handleKeyDown);
   return (
     <>
       <Header />

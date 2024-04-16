@@ -171,7 +171,6 @@ export default function Home () {
                     Global Feed
                   </button>
                 </li>
-                {/* Render the selected tag as a new navigation item */}
                 {selectedTag && (
                   <li className='nav-item'>
                     <button
