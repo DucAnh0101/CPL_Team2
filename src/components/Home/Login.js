@@ -23,9 +23,9 @@ export default function Login() {
         navigate('/');
       })
       .catch(err => {
-        if (!email || err.response.data.errors.email) {
+        if (err.response.data.errors.email) {
           setErr(`Email ${err.response.data.errors.email}`);
-        } else if (!password || err.response.data.errors.password) {
+        } else if (err.response.data.errors.password) {
           setErr(`Password ${err.response.data.errors.password}`);
         } else { 
           setErr(`Email or password ${err.response.data.errors['email or password']}`)

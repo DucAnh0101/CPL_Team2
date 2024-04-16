@@ -80,9 +80,7 @@ export default function Header() {
                 to='/'>
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>Log out
               </Link>
-              <span
-                className="text-secondary"
-              >
+              <Link to={`/user/${user.username}`} className="text-secondary">
                 <img
                   className="user-avt"
                   alt="user-avt"
@@ -91,9 +89,9 @@ export default function Header() {
                     borderRadius: "15px",
                     width: "20px",
                   }}
-                />{" "}
+                />
                 {user.username}
-              </span>
+              </Link>
             </div>
           </div>
         </div>

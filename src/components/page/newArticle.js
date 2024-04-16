@@ -36,7 +36,7 @@ export default function NewArticle () {
         navigate('/')
 
         console.log('Article updated successfully:', data.article)
-        navigate(`/article/${data.article.slug}`) // Navigate to the updated article's page with the new slug
+        navigate(`/article/${data.article.slug}`)
       } else {
         console.log("failed")
       }

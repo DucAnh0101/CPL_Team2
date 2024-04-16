@@ -3,15 +3,25 @@ import Login from './components/Home/Login';
 import Register from './components/Home/Register';
 import NewArticle from './components/page/newArticle';
 import EditProfile from './components/page/editProfile';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import Footer from './components/Header & footer/Footer';
 import DetailArticle from './components/page/detailArticle'
 import EditArticle from './components/page/editArticle';
-function App () {
+import UserProfile from './components/page/userProfile';
+import Profile from './components/page/profile';
+import axios from 'axios';
+import { useState } from 'react';
+
+function App() {
+  const token = localStorage.getItem('token');
+  let isAuthenticated = false;
+  token ? isAuthenticated = true : isAuthenticated = false;
+
   return (
     <BrowserRouter>
       <div className='app'>
         <Routes>
+<<<<<<< HEAD
           <Route path='/' element={<Home/>}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/login' element={<Login/>}/>
@@ -19,11 +29,21 @@ function App () {
           <Route path='/editProfile' element={<EditProfile/>}/>
           <Route path='/article/:slug' element={<DetailArticle/>}/>
           <Route path='/newArticle/:slug' element={<EditArticle/>}/>
+=======
+          <Route path='/' element={<Home />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/newArticle' element={<NewArticle />} />
+          <Route path='/editProfile' element={<EditProfile />} />
+          <Route path='/article/:slug' element={<DetailArticle />} />
+          <Route path='/newArticle/:slug' element={<EditArticle />} />
+          <Route path='/profile/:userName' element={<UserProfile />} />
+          <Route path='/user/:userName' element={isAuthenticated?<Profile />: <Navigate to="/login"/>} />
+>>>>>>> 4c0d8776d9f47cec91ecedbf0b26add6fdfb116a
         </Routes>
         <Footer/>
       </div>
     </BrowserRouter>
-
   );
 }
 

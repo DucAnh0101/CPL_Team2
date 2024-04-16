@@ -23,7 +23,6 @@ export default function Register() {
         })
             .then((res) => {
                 localStorage.setItem('token', res.data.user.token);
-                setError('');
                 navigate('/');
             })
             .catch((err) => {
@@ -34,7 +33,9 @@ export default function Register() {
                     setError(`Username ${err.response.data.errors.username}`);
                 } else if (!password) {
                     setError(`Password ${err.response.data.errors.password}`);
-                } 
+                } else {
+                    setError('');
+                }
             })
     }
     const handleKeyDown = event => {

@@ -1,0 +1,29 @@
+.user-info{
+    background-color: rgb(235, 231, 231);
+    padding: 25px;
+}
+
+.user-image{
+    width: 100px;
+}
+
+.favorited {
+    background-color: #198754;
+    color: white;
+    border: #198754 1px solid;
+  
+  }
+  
+.unfavorited {
+    background-color: inherit;
+    color: #198754;
+    border: #198754 1px solid;
+  }
+
+.active {
+    color: #5cb85c;
+  }
+
+  .btn-outline-secondary {
+    --bs-btn-hover-color: rgb(3, 2, 2);
+  }
