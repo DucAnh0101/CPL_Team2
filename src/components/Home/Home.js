@@ -7,10 +7,10 @@ export default function Home () {
   const navigate = useNavigate()
   const [articles, setArticles] = useState([])
   const [tags, setTags] = useState([])
-  const [selectedTag, setSelectedTag] = useState(null) // State to store the selected tag
+  const [selectedTag, setSelectedTag] = useState(null) 
   const [activeItem, setActiveItem] = useState('Global Feed')
-  const [offset, setOffset] = useState(0) // Thêm state offset
-  const [isLogin, setIsLogin] = useState(false) // State to store the selected tag
+  const [offset, setOffset] = useState(0) 
+  const [isLogin, setIsLogin] = useState(false) 
   const limit = 10
   const [totalPages, setTotalPages] = useState(0)
   const [firstLogin, setFirstLogin] = useState(false)

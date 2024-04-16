@@ -43,7 +43,7 @@ const EditArticle = () => {
     } catch (error) {
       console.error('Error fetching article details:', error)
     } finally {
-      setLoading(false) // Set loading to false regardless of success or failure
+      setLoading(false)
     }
   }
   const handleEdit = async (oldSlug) => {
@@ -67,16 +67,13 @@ const EditArticle = () => {
   
       if (response.ok) {
         const data = await response.json()
-        // If the update is successful, navigate to the updated article page
         console.log('Article updated successfully:', data.article)
-        navigate(`/article/${data.article.slug}`) // Navigate to the updated article's page with the new slug
+        navigate(`/article/${data.article.slug}`) 
       } else {
         console.error('Failed to update article')
-        // Handle error scenarios here
       }
     } catch (error) {
       console.error('Error updating article:', error)
-      // Handle error scenarios here
     }
   }
   

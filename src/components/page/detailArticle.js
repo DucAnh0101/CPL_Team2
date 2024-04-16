@@ -107,7 +107,6 @@ const DetailArticle = () => {
   }
   const handleComment = async () => {
     if (!commentText.trim()) {
-      // Don't allow posting empty comments
       return
     }
 
@@ -128,9 +127,7 @@ const DetailArticle = () => {
 
       if (response.ok) {
         const data = await response.json()
-        // Add the newly created comment to the comments state
         setComments([...comments, data.comment])
-        // Clear the comment text after posting
         setCommentText('')
       } else {
         console.error('Failed to post comment:', response.statusText)
@@ -151,7 +148,7 @@ const DetailArticle = () => {
       })
 
       if (response.ok) {
-        fetchComments() // Fetch comments again after deletion
+        fetchComments() 
       } else {
         console.error('Failed to delete comment:', response.statusText)
       }
@@ -175,9 +172,7 @@ const DetailArticle = () => {
       })
 
       if (response.ok) {
-        // Article successfully deleted, perform any necessary cleanup
-        // For example, navigate to a different page
-        navigate('/') // Navigate to home page after deletion
+        navigate('/')
       } else {
         console.error('Failed to delete article:', response.statusText)
       }
