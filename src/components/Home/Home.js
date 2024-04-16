@@ -191,7 +191,7 @@ export default function Home () {
                 articles.map(article => (
                   <div className='article-preview' key={article.slug}>
                     <div className='article-meta'>
-                      <a href='#'>
+                      <a href={`/profile/${article.author.username}`}>
                         <img
                           src={article.author.image}
                           alt='author-img'
@@ -201,7 +201,7 @@ export default function Home () {
                       <div className='info'>
                         <a
                           className='text-success h6 mx-2 author flex'
-                          href='#'
+                          href={`/profile/${article.author.username}`}
                         >
                           {article.author.username}
                         </a>

@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from './components/Header & footer/Footer';
 import DetailArticle from './components/page/detailArticle'
 import EditArticle from './components/page/editArticle';
+import UserProfile from './components/page/userProfile';
 function App () {
   return (
     <BrowserRouter>
@@ -19,7 +20,7 @@ function App () {
           <Route path='/editProfile' element={<EditProfile />} />
           <Route path='/article/:slug' element={<DetailArticle />} />
           <Route path='/newArticle/:slug' element={<EditArticle />} />
-
+          <Route path='/profile/:userName' element={<UserProfile />} />
         </Routes>
         <Footer />
       </div>
