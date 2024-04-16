@@ -123,7 +123,6 @@ const UserProfile = () => {
 
     const handlePageChange = pageNumber => {
         setOffset((pageNumber - 1) * limit)
-
         return
     }
 

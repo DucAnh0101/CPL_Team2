@@ -8,7 +8,10 @@ import Footer from './components/Header & footer/Footer';
 import DetailArticle from './components/page/detailArticle'
 import EditArticle from './components/page/editArticle';
 import UserProfile from './components/page/userProfile';
-function App () {
+import Profile from './components/page/profile';
+
+function App() {
+  const isAuthenticated = true;
   return (
     <BrowserRouter>
       <div className='app'>
@@ -21,11 +24,11 @@ function App () {
           <Route path='/article/:slug' element={<DetailArticle />} />
           <Route path='/newArticle/:slug' element={<EditArticle />} />
           <Route path='/profile/:userName' element={<UserProfile />} />
+          {isAuthenticated && <Route path='/user/:userName' element={<Profile />} />}
         </Routes>
         <Footer />
       </div>
     </BrowserRouter>
-
   );
 }
 
